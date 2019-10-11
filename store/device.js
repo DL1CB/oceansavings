@@ -50,43 +50,9 @@ export const actions = {
     commit('loading', 1 );
 
     await client.query({ 
-
       query: gql`query device($id: uuid!){
         devices_by_pk(id: $id ) {
-          name 
-          current: history(limit: 1, order_by: {eventid: desc}) {
-            batterylevel
-            charging
-            created_at
-            deviceid
-            eventid
-            fluidlevel
-            maintenance
-            passersby
-            signalstrength
-            uses
-          } 
-          control {
-            dosage
-            lighton
-            lightcolor
-            lightluminosity
-          }
-          owner {
-            name
-            location {
-              street
-              number
-              city
-              country
-              postalcode
-            }
-          }
-          location {
-            indoorname
-            north
-            east
-          }
+          weight 
         }
       }`,
 
@@ -95,6 +61,7 @@ export const actions = {
       fetchPolicy: 'network-only'
 
     }).then((response) => { 
+        console.log(response)
         commit('clearitem');
         commit('setitem',  response.data.devices_by_pk );
         commit('loading', 0 );
@@ -102,6 +69,34 @@ export const actions = {
         commit('networkStatus', response.data.networkStatus );
      })
 
-  }
+  },
 
+  async observe({ commit }){
+       
+    let client = this.app.apolloProvider.defaultClient
+
+    await client.subscribe({ 
+
+      query: gql`subscription device($id: uuid!) {
+          devices_by_pk(id: $id) {
+            id
+            weight
+          }
+        }`,
+
+      variables: {id:"1eb6aa14-4004-4a57-a0aa-dbf7a837c992"},
+
+      fetchPolicy: 'network-only'
+
+    }).subscribe({
+      next (response) {
+        console.log(response)
+        commit('clearitem');
+        commit('setitem', response.data.devices_by_pk);    
+      },
+      error (error) {
+        console.error(error)
+      }
+    })
+  }
 }
