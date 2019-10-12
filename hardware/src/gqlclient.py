@@ -30,6 +30,10 @@ def execute(query,variables=None,url=defaultUrl,token=defaultToken):
         )
     except OSError:
         return None
+    
+    except IndexError:
+        return None
+        
     else:
         return response.content.decode('utf-8')
 

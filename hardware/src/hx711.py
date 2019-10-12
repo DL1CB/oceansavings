@@ -1,6 +1,9 @@
 from machine import Pin, freq
 
-def read(SCK=15, DAT=13):
+taremin = 72890
+samples = [0,0,0,0,0]
+
+def read(SCK=4, DAT=5):
     """ reads a raw value from hx711 """
 
     data = Pin(DAT, Pin.IN)
@@ -8,7 +11,7 @@ def read(SCK=15, DAT=13):
     
     initialFreq = freq() # so we can slow it down afterwards
     freq(160000000) # hx711 needs a high clock frequency :o
-    
+
     value = 0
     
     if data.value() == 0:
@@ -30,7 +33,15 @@ def read(SCK=15, DAT=13):
     
     return value
 
-def scale(value,rawmin=100941, rawmax=274919, rangemin=0, rangemax=100):
+
+def tare():
+    global taremin
+    taremin = read()
+    print(taremin)
+    return taremin
+    
+   
+def scale(value,rawmin, rawmax, rangemin, rangemax):
     """ scales a raw value to an output range
         rawmin int - the raw scale reading for empty
         rawmax int - the raw scale reading for full
@@ -44,7 +55,21 @@ def scale(value,rawmin=100941, rawmax=274919, rangemin=0, rangemax=100):
     # Convert the 0-1 range into a value in the right range.
     value = rangemin + (valueScaled * ((rangemax * 10) - rangemin))
 
-    value = value // 10 * 10 // 10 # float to int
+    value = value // 10 * 10  # float to int
 
     return max(value, rangemin) # value must be greater or equal to rangemin
+
+def sample():
+
+    samples.append(read())
+    samples.pop(0)
+    value = sum(samples)/5
+
+    value = scale(value, taremin, (12780 + taremin), 0, 1000) // 10
+
+    print(value, taremin, (12780 + taremin), 0, 1000)
+    
+    return value // 10 * 10
+
+
 

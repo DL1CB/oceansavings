@@ -1,20 +1,22 @@
 <template>
-  <div>
+  <div style="overflow-y: hidden">
   <b-container fluid>
-    <b-row class="p-0 " >
-      <b-col >
-        <b-card overlay img-src="https://picsum.photos/1024/480/?image=1001&blur=5">
+    <b-row >
+      <b-col class="p-0" >
+        <b-card overlay img-src="https://picsum.photos/1024/600/?image=218" >
           <b-card-body>
 
-          <h2>Store</h2>
+          <div class="display-2 text-white">Ocean Saving</div>
+          <br/>
+          <h2 class="text-muted">Stores</h2>
           <b-row class="p-0">
             <b-col md="4" sm="6" xs="12" class="align-items-center">
               <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="weight" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
-                  <animatednumber class="h2" :value='item.weight' :duration='500' :delay='100' round='1'/> kg
+                  <fa icon="weight"/>
+                  <animatednumber class="h2" :value='item.weight' :formatValue="formatToKilogram" :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
             </b-col>
@@ -24,7 +26,7 @@
                 <h3>Goal</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="carrot" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
+                  <fa icon="carrot"/>
                   <animatednumber class="h2" value='600' :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
@@ -35,34 +37,37 @@
                 <h3>Store Discount</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="award" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
-                  <animatednumber class="h2" :value='item.weight / 600 * 20' :duration='500' :delay='100' round='1'/>%
+            
+                  <animatednumber class="h1" :value='discount(item.weight,600,20)' :duration='500' :delay='100' round='1'/>%
                 </h2>
               </div>
             </b-col>
           </b-row>
 
           <br/>
+            <br/>
+              <br/>
+                <br/>
 
-          <h2>Germany</h2>
+          <h2 class="text-muted">Germany</h2>
           <b-row class="p-0">
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.2)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="weight" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
+                  <fa icon="weight"/>
                   <animatednumber class="h2" :value='7256+item.weight' :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
             </b-col>
 
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.2)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Goal</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="carrot" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
+                  <fa icon="carrot"/>
                   7,000 kg
                 </h2>
  
@@ -74,29 +79,29 @@
 
          <br/>
           
-          <h2>Global</h2>
+          <h2 class="text-muted">Global</h2>
           <b-row class="p-0">
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.2)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="weight" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
+                  <fa icon="weight"/>
                   <animatednumber class="h2" :value='39765+item.weight' :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
             </b-col>
 
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.2)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Goal</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="carrot" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>
+                  <fa icon="carrot"/>
                   70,000 kg
                 </h2>
                 <div class="text-center">
-                  in celebration of 70 years of Adidas
+                  70 year celebration
                 </div>
               </div>
             </b-col>
@@ -154,6 +159,8 @@ export default {
     current() {
       return {} //this.$store.getters['device/item'].current[0]
     }
+
+
   },
 
   methods: {
@@ -163,6 +170,16 @@ export default {
              location.city +' '+
              location.country +' '+
              location.postalcode 
+    },
+    formatToKilogram(value) {
+      value = parseInt(value)
+      value = value / 1000
+      return `${value.toFixed(2)}`;
+    },
+    discount(weight,goal,maxdiscount) {
+      //var result = (weight / 600000) * 20
+      var result = (weight / 6000) * 20
+      return Math.min(maxdiscount,result)
     }
   },
   
@@ -175,4 +192,8 @@ export default {
   }
 }
 </script>
+
+<style>
+ body { overflow: hidden; }
+</style>
 

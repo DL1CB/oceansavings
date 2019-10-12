@@ -1,0 +1,1 @@
+esptool.py --port com7 --baud 460800 erase_flash

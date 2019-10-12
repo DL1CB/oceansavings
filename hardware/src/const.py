@@ -20,8 +20,8 @@ Micropython | NodeMCU Board
 SCL = const(5) #D1 [output mode]
 SDA = const(4) #D2 [input & output mode]
 
-DAT = const(13) #D7 [input mode]
-SCK = const(15) #D8 [output mode]
+DAT = const(5) #D1 [input mode]
+SCK = const(4) #D2 [output mode]
 
 LED = const(2) #D4 [output mode]
 
@@ -32,12 +32,14 @@ D5 = const(14) #D5
 D6 = const(12) #D6
 
 #wifi credentials
-essid = 'SummerTime'
-password = 'Calmhat436'
+#essid = 'SummerTime'
+#password = 'Calmhat436'
+essid = 'DTShackathon'
+password = 'HackTime247'
 
 #server api url
-url = 'https://tryhasura.herokuapp.com/v1/graphql'
-deviceid = "ec656488-f941-4e19-ab54-d3853361a86a"
+url = 'https://stinkydb.herokuapp.com/v1/graphql'
+deviceid = "1eb6aa14-4004-4a57-a0aa-dbf7a837c992"
 token = None
 
 #versioning
