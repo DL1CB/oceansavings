@@ -32,10 +32,10 @@ D5 = const(14) #D5
 D6 = const(12) #D6
 
 #wifi credentials
-#essid = 'SummerTime'
-#password = 'Calmhat436'
-essid = 'DTShackathon'
-password = 'HackTime247'
+essid = 'SummerTime'
+password = 'Calmhat436'
+#essid = 'DTShackathon'
+#password = 'HackTime247'
 
 #server api url
 url = 'https://stinkydb.herokuapp.com/v1/graphql'

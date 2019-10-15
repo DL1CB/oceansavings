@@ -6,7 +6,7 @@
         <b-card overlay img-src="https://picsum.photos/1024/600/?image=218" >
           <b-card-body>
 
-          <div class="display-2 text-white">Ocean Saving</div>
+          <div class="display-2 text-white">Ocean Savings</div>
           <br/>
           <h2 class="text-muted">Stores</h2>
           <b-row class="p-0">
