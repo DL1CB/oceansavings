@@ -16,6 +16,10 @@
                 <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
+                  <fa-layers class="text-center">  
+                    <fa icon="trash" transform="grow-5" />
+                    <fa icon="futbol" transform="shrink-6 down-2" :style="{ color: 'rgba(0, 231, 255, 1)' }"/>  
+                  </fa-layers>
                   <animatednumber class="h2" :value='item.weight' :formatValue="formatToKilogram" :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
@@ -27,7 +31,7 @@
                  <br/>
                 <h2 class="text-center">
             
-                  <animatednumber class="h1" :value='discount(item.weight,600,20)' :duration='500' :delay='100' round='1'/>%
+                  <animatednumber class="h1" :value='discount(item.weight,600,20)' :duration='500' :delay='100' round='1'/> %
                 </h2>
               </div>
             </b-col>
