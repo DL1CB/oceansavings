@@ -1,28 +1,39 @@
 <template>
-
-
+  <div style="overflow-y: hidden">
   <b-container fluid>
-
     <b-row >
-      <b-col class="p-4 my-4" >
+      <b-col class="p-0" >
+        <b-card overlay img-src="https://picsum.photos/1024/600/?image=218" >
+          <b-card-body>
 
-        <div class="display-3 text-center text-white">Ocean Savings</div>
-        <br/>
-    
-            <b-row class="p-0 justify-content-center">
-
+          <div class="display-2 text-white">Ocean Savings</div>
+          <br/>
+          <h2 class="text-muted">Stores</h2>
+          <b-row class="p-0">
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
+                  <fa icon="weight"/>
                   <animatednumber class="h2" :value='item.weight' :formatValue="formatToKilogram" :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
             </b-col>
 
+            <b-col md="4" sm="6" xs="12" class="align-items-center ">
+              <div class="my-2 h-100 p-4 text-center shadow rounded" style="background-color: rgba(255, 255, 255, 0.6)">
+                <h3>Goal</h3>
+                 <br/>
+                <h2 class="text-center">
+                  <fa icon="carrot"/>
+                  <animatednumber class="h2" value='600' :duration='500' :delay='100' round='1'/> kg
+                </h2>
+              </div>
+            </b-col>
+
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 1)">
                 <h3>Store Discount</h3>
                  <br/>
                 <h2 class="text-center">
@@ -33,23 +44,56 @@
             </b-col>
           </b-row>
 
+          <br/>
+            <br/>
+              <br/>
+                <br/>
 
-         <br/>
-          
-         
-          <b-row class="p-0 justify-content-center">
+          <h2 class="text-muted">Germany</h2>
+          <b-row class="p-0">
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
-                <h3>Collected</h3>
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
+                <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
-                     <animatednumber class="h2" :value='39765+item.weight' :duration='500' :delay='100' round='1'/> kg
+                  <fa icon="weight"/>
+                  <animatednumber class="h2" :value='7256+item.weight' :duration='500' :delay='100' round='1'/> kg
                 </h2>
               </div>
             </b-col>
 
             <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
+                <h3>Goal</h3>
+                 <br/>
+                <h2 class="text-center">
+                  <fa icon="carrot"/>
+                  7,000 kg
+                </h2>
+ 
+
+              </div>
+            </b-col>
+
+          </b-row>
+
+         <br/>
+          
+          <h2 class="text-muted">Global</h2>
+          <b-row class="p-0">
+            <b-col md="4" sm="6" xs="12" class="align-items-center">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
+                <h3>Weight</h3>
+                 <br/>
+                <h2 class="text-center">
+                  <fa icon="weight"/>
+                  <animatednumber class="h2" :value='39765+item.weight' :duration='500' :delay='100' round='1'/> kg
+                </h2>
+              </div>
+            </b-col>
+
+            <b-col md="4" sm="6" xs="12" class="align-items-center">
+              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.6)">
                 <h3>Goal</h3>
                  <br/>
                 <h2 class="text-center">
@@ -64,23 +108,12 @@
 
           </b-row>
 
-         <b-row class="py-4 justify-content-center">
-         <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
-                <h3>Follow</h3>
-                <br/>
-                <b-img class="img-fluid" src="~/assets/qrcode.png"></b-img>
-
-
-              </div>
-            </b-col>
-
-          </b-row>
-
+          </b-card-body>
+        </b-card>
       </b-col>
     </b-row>
   </b-container>
-
+  </div>
 </template>
 
 <script>
@@ -161,12 +194,6 @@ export default {
 </script>
 
 <style>
-body {
-  background: url('https://picsum.photos/1920/1080/?image=218') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
+
 </style>
 
