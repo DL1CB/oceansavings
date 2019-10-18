@@ -1,18 +1,30 @@
 <template>
+  <b-container>
 
-
-  <b-container fluid>
-
-    <b-row >
-      <b-col class="p-4 my-4" >
-
-        <div class="display-3 text-center text-white">Ocean Savings</div>
+        <div class="p-2 my-3 display-3 text-center text-white">Ocean Savings</div>
         <br/>
     
-            <b-row class="p-0 justify-content-center">
+        <b-row class="h-50 d-flex  justify-content-center">
 
-            <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+
+            <b-col md="4" sm="6" xs="12" class="p-2 my-2 align-items-center">
+              <div class="h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+                <h3>Store Discount</h3>
+                 <br/>
+                <h2 class="text-center">
+                  <animatednumber class="h1" :value='discount(item.weight,600,20)' :duration='500' :delay='100' round='1'/> %
+                </h2>
+              </div>
+            </b-col>
+            <b-col md="1" sm="1" xs="12" class="p-0 align-self-center align-items-center">
+              <h2 class="h-100 text-center ">
+               <fa icon="link" transform="grow-4" />
+              </h2>
+            </b-col>
+                    
+
+            <b-col md="4" sm="6" xs="12" class="p-2 my-2 align-items-center">
+              <div class="h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
                 <h3>Weight</h3>
                  <br/>
                 <h2 class="text-center">
@@ -25,25 +37,11 @@
               </div>
             </b-col>
 
-            <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
-                <h3>Store Discount</h3>
-                 <br/>
-                <h2 class="text-center">
-            
-                  <animatednumber class="h1" :value='discount(item.weight,600,20)' :duration='500' :delay='100' round='1'/> %
-                </h2>
-              </div>
-            </b-col>
           </b-row>
-
-
-         <br/>
-          
-         
-          <b-row class="p-0 justify-content-center">
-            <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+       
+          <b-row class="h-50 justify-content-center">
+            <b-col md="4" sm="6" xs="12" class="p-2 my-2 align-items-center">
+              <div class="h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
                 <h3>Collected</h3>
                  <br/>
                 <h2 class="text-center">
@@ -51,38 +49,31 @@
                 </h2>
               </div>
             </b-col>
-
-            <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+            <b-col md="4" sm="6" xs="12" class="p-2 my-2 align-items-center">
+              <div class="h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
                 <h3>Goal</h3>
                  <br/>
                 <h2 class="text-center">
-                  <fa icon="carrot"/>
                   70,000 kg
                 </h2>
-                <div class="text-center">
-                  70 year celebration
-                </div>
               </div>
             </b-col>
+  
 
-          </b-row>
 
-         <b-row class="py-4 justify-content-center">
-         <b-col md="4" sm="6" xs="12" class="align-items-center">
-              <div class="my-2 h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
+            <b-col md="4" sm="6" xs="12" class="p-2 my-2 align-items-center">
+              <div class="h-100 p-4 text-center shadow" style="background-color: rgba(255, 255, 255, 0.9)">
                 <h3>Follow</h3>
-                <br/>
-                <b-img class="img-fluid" src="~/assets/qrcode.png"></b-img>
-
-
+                 <br/>
+     
+                     <b-img class="w-25  img-fluid" src="~/assets/qrcode.png"></b-img>
+              
               </div>
             </b-col>
 
           </b-row>
 
-      </b-col>
-    </b-row>
+
   </b-container>
 
 </template>
