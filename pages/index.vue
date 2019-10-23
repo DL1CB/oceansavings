@@ -126,7 +126,7 @@
 
             <b-carousel-slide img-src="https://picsum.photos/1024/200/?image=1069&blur=1">
               <div class="display-4">recycle the old</div>
-              <div class="display-4">take home the new</div>
+              <div class="display-4">enjoy the new</div>
             </b-carousel-slide>
 
             <b-carousel-slide img-src="https://picsum.photos/1024/200/?image=124&blur=1">
