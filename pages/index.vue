@@ -18,7 +18,7 @@
               :duration="500"
               :delay="100"
               round="1"
-            />%
+            /> %
           </h2>
         </div>
       </b-col>
@@ -51,7 +51,7 @@
               :duration="500"
               :delay="100"
               round="1"
-            />kg
+            /> kg
           </h2>
         </div>
       </b-col>
@@ -68,11 +68,11 @@
           <h2 class="text-center">
             <animatednumber
               class="h2"
-              :value="39765+item.weight"
+              :value="formatToKilogram(39765000+item.weight)"
               :duration="500"
               :delay="100"
               round="1"
-            />kg
+            /> kg
           </h2>
         </div>
       </b-col>
@@ -83,7 +83,7 @@
         >
           <h3>Goal</h3>
           <br />
-          <h2 class="text-center">70,000 kg</h2>
+          <h2 class="text-center">70000 kg</h2>
         </div>
       </b-col>
 
