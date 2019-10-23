@@ -131,7 +131,7 @@
 
             <b-carousel-slide img-src="https://picsum.photos/1024/200/?image=124&blur=1">
               <div class="display-4">explore the store </div>
-              <div class="display-4">while the dicount rises</div>
+              <div class="display-4">while the discount rises</div>
             </b-carousel-slide>
 
           </b-carousel>
